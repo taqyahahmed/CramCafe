@@ -61,7 +61,7 @@ const seatLeftPositions = ['.5%', '20%', '43%', '68%'];
 
 const animalBottomOffset = {
   penguin: '7.9%',
-  dragon: '-.12%',
+  dragon: '-2%',
   cat: '-5.8%',
   panda: '4.6%',
 };
