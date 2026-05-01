@@ -1,0 +1,70 @@
+.pomodoro {
+  background: #e8f4fd;
+  border: 1.5px solid #b5d4f4;
+  border-radius: 16px;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Nunito', sans-serif;
+  min-width: 140px;
+}
+
+.pomo-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #185fa5;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.pomo-time {
+  font-size: 32px;
+  font-weight: 600;
+  color: #0c447c;
+  letter-spacing: 2px;
+}
+
+.pomo-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.pomo-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #b5d4f4;
+}
+
+.pomo-dot.active {
+  background: #378add;
+}
+
+.pomo-btns {
+  display: flex;
+  gap: 8px;
+}
+
+.pomo-btn {
+  background: #378add;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 12px;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 600;
+}
+
+.pomo-btn:hover { background: #185fa5; }
+
+.pomo-btn.sec {
+  background: #e8f4fd;
+  color: #378add;
+  border: 1.5px solid #b5d4f4;
+}
+
+.pomo-btn.sec:hover { background: #b5d4f4; }

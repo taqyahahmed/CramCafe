@@ -1,0 +1,144 @@
+.room {
+  width: 100vw;
+  min-height: 100vh;
+  background: #fdf6ee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  font-family: 'Nunito', sans-serif;
+  padding: 48px;
+}
+
+.room-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #7a4f2e;
+}
+
+.room-subtitle {
+  font-size: 15px;
+  color: #b08060;
+  margin-top: -12px;
+}
+
+.room-sections {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.room-card {
+  background: #fff;
+  border-radius: 16px;
+  border: 1.5px solid #e8d8c4;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 260px;
+}
+
+.room-card-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #7a4f2e;
+}
+
+.room-card-desc {
+  font-size: 13px;
+  color: #b08060;
+}
+
+.room-input {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1.5px solid #e8d8c4;
+  background: #fdf6ee;
+  font-size: 14px;
+  color: #7a4f2e;
+  font-family: inherit;
+  outline: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.room-input:focus { border-color: #c17f4a; }
+
+.room-btn {
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  background: #c17f4a;
+  color: #fff5e6;
+  font-size: 14px;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.room-btn:hover { background: #a06535; }
+.room-btn:disabled { background: #e8d8c4; color: #b08060; cursor: not-allowed; }
+
+.room-divider {
+  font-size: 14px;
+  color: #b08060;
+}
+
+.room-error {
+  font-size: 13px;
+  color: #c17f4a;
+  font-weight: 600;
+}
+
+.room-card-icon {
+  font-size: 24px;
+}
+
+.room-btn.secondary {
+  background: #f5ead8;
+  color: #a07850;
+}
+
+.room-btn.secondary:hover {
+  background: #e8d8c4;
+}
+
+.room-back {
+  background: none;
+  border: none;
+  color: #b08060;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: inherit;
+  margin-top: 8px;
+}
+
+.room-code-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  border-radius: 16px;
+  border: 1.5px solid #e8d8c4;
+  padding: 20px 24px;
+}
+
+.room-code-label {
+  font-size: 12px;
+  color: #b08060;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.room-code {
+  font-size: 28px;
+  font-weight: 600;
+  color: #7a4f2e;
+  letter-spacing: 6px;
+}
+
+.room-back:hover { color: #7a4f2e; }
