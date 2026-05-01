@@ -12,7 +12,6 @@ function Room({ user, onJoin }) {
   const [input, setInput] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const [privateCode, setPrivateCode] = useState('');
 
   async function findPublicTable() {
     setLoading(true);
