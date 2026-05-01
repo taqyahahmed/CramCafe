@@ -60,10 +60,10 @@ const drinks = {
 const seatLeftPositions = ['.5%', '20%', '43%', '68%'];
 
 const animalBottomOffset = {
-  penguin: '7.5%',
-  dragon: '-1.99%',
-  cat: '-5.8%',
-  panda: '4.5%',
+  penguin: '9.5%',
+  dragon: '-.12%',
+  cat: '-3.8%',
+  panda: '6.5%',
 };
 
 const animalSizes = {
