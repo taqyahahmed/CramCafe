@@ -60,10 +60,10 @@ const drinks = {
 const seatLeftPositions = ['.5%', '20%', '43%', '68%'];
 
 const animalBottomOffset = {
-  penguin: '6.1%',
-  dragon: '-3.4%',
-  cat: '-7.34%',
-  panda: '3.1%',
+  penguin: '7.5%',
+  dragon: '-1.99%',
+  cat: '-5.8%',
+  panda: '4.5%',
 };
 
 const animalSizes = {
@@ -81,17 +81,17 @@ const animalAnimations = {
 };
 
 const seatDrinkPositions = [
-  { left: '5%', bottom: '10%' },
-  { left: '29%', bottom: '10%' },
-  { left: '52%', bottom: '10%' },
-  { left: '76%', bottom: '10%' },
+  { left: '7%', bottom: '10%' },
+  { left: '27%', bottom: '10%' },
+  { left: '50%', bottom: '10%' },
+  { left: '75%', bottom: '10%' },
 ];
 
 const seatBookPositions = [
-  { left: '10%', bottom: '6%' },
-  { left: '34%', bottom: '6%' },
-  { left: '57%', bottom: '6%' },
-  { left: '81%', bottom: '6%' },
+  { left: '12%', bottom: '6%' },
+  { left: '32%', bottom: '6%' },
+  { left: '55%', bottom: '6%' },
+  { left: '80%', bottom: '6%' },
 ];
 
 const seatTodoPositions = [
