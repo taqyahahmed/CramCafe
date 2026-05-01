@@ -1,9 +1,9 @@
-import Sounds from './Sounds';
 import { useEffect, useState } from 'react';
 import { supabase } from './supabase';
 import Room from './Room';
 import Pomodoro from './Pomodoro';
 import Socials from './Socials';
+import Sounds from './Sounds';
 import './App.css';
 import Picker from './Picker';
 import TodoList from './TodoList';
@@ -118,7 +118,7 @@ function Character({ type, position, size, animationDuration }) {
         left: position.left,
         bottom: position.bottom,
         height: size,
-        animationDuration: animationDuration
+        animationDuration: animationDuration,
       }}
     />
   );
@@ -172,9 +172,11 @@ function BookItem({ type, position, onClick }) {
         style={{
           left: `calc(${position.left} + 9%)`,
           bottom: `calc(${position.bottom} + 12%)`,
-          fontSize: '24px'
+          fontSize: '24px',
         }}
-      >💭</div>
+      >
+        💭
+      </div>
     </>
   );
 }
@@ -200,6 +202,7 @@ function App() {
         .from('seats')
         .select('*')
         .eq('room_id', roomId);
+
       if (data) setSeats(data);
     }
 
@@ -211,7 +214,7 @@ function App() {
         event: '*',
         schema: 'public',
         table: 'seats',
-        filter: `room_id=eq.${roomId}`
+        filter: `room_id=eq.${roomId}`,
       }, () => {
         loadSeats();
       })
@@ -255,81 +258,83 @@ function App() {
 
   return (
     <div className="app">
-      <img src={background} alt="cafe background" className="background" />
+      <div className="scene">
+        <img src={background} alt="cafe background" className="background" />
 
-      {seats.map(seat => (
-        <Character
-          key={seat.seat_index}
-          type={seat.animal}
-          position={{ left: seatLeftPositions[seat.seat_index], bottom: animalBottomOffset[seat.animal] }}
-          size={animalSizes[seat.animal]}
-          animationDuration={animalAnimations[seat.animal]}
-        />
-      ))}
+        {seats.map(seat => (
+          <Character
+            key={seat.seat_index}
+            type={seat.animal}
+            position={{ left: seatLeftPositions[seat.seat_index], bottom: animalBottomOffset[seat.animal] }}
+            size={animalSizes[seat.animal]}
+            animationDuration={animalAnimations[seat.animal]}
+          />
+        ))}
 
-      {seats.map(seat => (
-        <NameTag
-          key={'name-' + seat.seat_index}
-          name={seat.user_name}
-          seatIndex={seat.seat_index}
-          instagram={seat.instagram}
-          discord={seat.discord}
-        />
-      ))}
+        {seats.map(seat => (
+          <NameTag
+            key={'name-' + seat.seat_index}
+            name={seat.user_name}
+            seatIndex={seat.seat_index}
+            instagram={seat.instagram}
+            discord={seat.discord}
+          />
+        ))}
 
-      {seats.map(seat => (
-        <DrinkItem
-          key={'drink-' + seat.seat_index}
-          type={seat.drink}
-          position={seatDrinkPositions[seat.seat_index]}
-        />
-      ))}
+        {seats.map(seat => (
+          <DrinkItem
+            key={'drink-' + seat.seat_index}
+            type={seat.drink}
+            position={seatDrinkPositions[seat.seat_index]}
+          />
+        ))}
 
-      {seats.map(seat => (
-        <BookItem
-          key={'book-' + seat.seat_index}
-          type={seat.book}
-          position={seatBookPositions[seat.seat_index]}
-          onClick={() => {
-            if (seat.seat_index === seatIndex) {
-              setViewTodoSeat(null);
-              setTodoOpen(!todoOpen);
-            } else {
-              setTodoOpen(false);
-              setViewTodoSeat(seat.seat_index === viewTodoSeat ? null : seat.seat_index);
-            }
-          }}
-        />
-      ))}
+        {seats.map(seat => (
+          <BookItem
+            key={'book-' + seat.seat_index}
+            type={seat.book}
+            position={seatBookPositions[seat.seat_index]}
+            onClick={() => {
+              if (seat.seat_index === seatIndex) {
+                setViewTodoSeat(null);
+                setTodoOpen(!todoOpen);
+              } else {
+                setTodoOpen(false);
+                setViewTodoSeat(seat.seat_index === viewTodoSeat ? null : seat.seat_index);
+              }
+            }}
+          />
+        ))}
 
-      {todoOpen && (
-        <TodoList
-          position={seatTodoPositions[seatIndex]}
-          isOwner={true}
-          onClose={() => setTodoOpen(false)}
-          roomId={roomId}
-          seatIndex={seatIndex}
-          initialItems={seats.find(s => s.seat_index === seatIndex)?.todo_items || []}
-        />
-      )}
+        {todoOpen && (
+          <TodoList
+            position={seatTodoPositions[seatIndex]}
+            isOwner={true}
+            onClose={() => setTodoOpen(false)}
+            roomId={roomId}
+            seatIndex={seatIndex}
+            initialItems={seats.find(s => s.seat_index === seatIndex)?.todo_items || []}
+          />
+        )}
 
-      {viewTodoSeat !== null && (
-        <TodoList
-          position={seatTodoPositions[viewTodoSeat]}
-          isOwner={false}
-          onClose={() => setViewTodoSeat(null)}
-          roomId={roomId}
-          seatIndex={viewTodoSeat}
-          initialItems={seats.find(s => s.seat_index === viewTodoSeat)?.todo_items || []}
-          name={seats.find(s => s.seat_index === viewTodoSeat)?.user_name || ''}
-        />
-      )}
+        {viewTodoSeat !== null && (
+          <TodoList
+            position={seatTodoPositions[viewTodoSeat]}
+            isOwner={false}
+            onClose={() => setViewTodoSeat(null)}
+            roomId={roomId}
+            seatIndex={viewTodoSeat}
+            initialItems={seats.find(s => s.seat_index === viewTodoSeat)?.todo_items || []}
+            name={seats.find(s => s.seat_index === viewTodoSeat)?.user_name || ''}
+          />
+        )}
 
-  <div className="panels-wrap">
-        <Sounds />
-        <div className="side-panel">
-          <Pomodoro />
-          <Socials roomId={roomId} seatIndex={seatIndex} />
+        <div className="panels-wrap">
+          <Sounds />
+          <div className="side-panel">
+            <Pomodoro />
+            <Socials roomId={roomId} seatIndex={seatIndex} />
+          </div>
         </div>
       </div>
     </div>
